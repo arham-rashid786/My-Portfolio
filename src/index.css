@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 14% 4%;
+    --foreground: 30 20% 90%;
+
+    --card: 20 12% 8%;
+    --card-foreground: 30 20% 90%;
+
+    --popover: 20 12% 8%;
+    --popover-foreground: 30 20% 90%;
+
+    --primary: 28 80% 52%;
+    --primary-foreground: 20 14% 4%;
+
+    --secondary: 20 12% 14%;
+    --secondary-foreground: 30 20% 90%;
+
+    --muted: 20 10% 15%;
+    --muted-foreground: 30 10% 55%;
+
+    --accent: 28 80% 52%;
+    --accent-foreground: 20 14% 4%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 12% 18%;
+    --input: 20 12% 18%;
+    --ring: 28 80% 52%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 20 12% 6%;
+    --sidebar-foreground: 30 20% 90%;
+    --sidebar-primary: 28 80% 52%;
+    --sidebar-primary-foreground: 20 14% 4%;
+    --sidebar-accent: 20 12% 14%;
+    --sidebar-accent-foreground: 30 20% 90%;
+    --sidebar-border: 20 12% 18%;
+    --sidebar-ring: 28 80% 52%;
+
+    /* Custom tokens */
+    --warm-glow: 28 80% 52%;
+    --warm-soft: 30 40% 70%;
+    --surface-elevated: 20 12% 10%;
+    --gradient-warm: linear-gradient(135deg, hsl(28 80% 52%), hsl(15 70% 45%));
+    --gradient-warm-subtle: linear-gradient(135deg, hsl(28 80% 52% / 0.15), hsl(15 70% 45% / 0.05));
+    --shadow-warm: 0 8px 32px hsl(28 80% 52% / 0.15);
+    --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-warm);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 0 1px hsl(var(--warm-glow) / 0.3), var(--shadow-warm);
+  }
+
+  .surface-elevated {
+    background-color: hsl(var(--surface-elevated));
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-warm);
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .section-padding {
+    @apply px-6 py-20 md:px-12 lg:px-24;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
+}
