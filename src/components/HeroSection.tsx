@@ -42,7 +42,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center gap-3 text-muted-foreground">
               <MapPin size={16} className="text-primary" />
-              <span className="text-sm font-body">House # C-64/4, Liaquat Market, Malir, Karachi</span>
+              <span className="text-sm font-body"> Malir, Karachi</span>
             </div>
           </div>
 
